@@ -4,7 +4,7 @@ var px   = [0.05,0.15,0.35,0.4,0.05]
 
 
 class Variance{
-  
+
   constructor(data,px){
     this.data = data
     this.px   = px
@@ -46,35 +46,3 @@ class Variance{
 const test = new Variance(data,px)
 
 console.log(test.getMean())
-
-// getMean = (array) => {
-//   let sum = 0
-//   let mean
-//
-//   for(let i = 0; i < array.length; i++){
-//     sum += array[i]
-//   }
-//     mean = sum/array.length
-//     return mean
-// }
-// sampleVariance = (array , pxaarry) => {
-//   let vari = 0
-//
-//   for(var i = 0; i < array.length; i++){
-//     let deviation = array[i] - anotherMean(array,pxaarry)
-//
-//     vari += (Math.pow(deviation, 2)) * pxaarry[i]
-//   }
-//   console.log(vari)
-// }
-// anotherMean = (array, px) => {
-//   let sum = 0
-//   let mean
-//
-//   for(let i = 0 ; i < array.length; i++){
-//     sum += array[i] * px[i]
-//   }
-//   return sum
-// }
-
-//sampleVariance(data,px)
