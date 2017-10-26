@@ -1,5 +1,5 @@
 # maths
 
-#Very small probability math library.
+Very small probability math library.
 
-#Nowhere close to being done.
+Nowhere close to being done.
