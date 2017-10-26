@@ -1,13 +1,35 @@
 let math = require('mathjs');
 
-bpd = (n,p,q,x) => {
-  let combinations = math.combinations(n,x)
-  let success      = Math.pow(p,x)
-  let failure      = Math.pow(q,n-x)
+class BPD{
+  constructor(n,p,q,x){
+    this.n = n
+    this.p = p
+    this.q = q
+    this.x = x
+  }
+  bpd(n,p,q,x){
+    let combinations = math.combinations(this.n,this.x)
+    let success      = Math.pow(this.p,this.x)
+    let failure      = Math.pow(this.q,this.n-this.x)
 
-  return combinations*success*failure
+    return combinations*success*failure
+    }
+  mean(n,p){
+    let samplesize = this.n
+    let success    = this.p
+
+    return samplesize * success
+  }
+  standardDev(n,p,q){
+    let samplesize  = this.n
+    let success     = this.p
+    let failure     = this.q
+
+    return Math.sqrt((samplesize * success * failure))
+  }
 }
 
-console.log(
-  (bpd(25,.05,.95,0)+bpd(25,.05,.95,1) + bpd(25,.05,.95,2) +
-  bpd(25,.05,.95,3)))
+//usage
+var test = new BPD(25,.3,.7,0)
+
+console.log(test.standardDev())
