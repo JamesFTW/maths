@@ -4,12 +4,10 @@ var px   = [0.05,0.15,0.35,0.4,0.05]
 
 
 class Variance{
-
   constructor(data,px){
     this.data = data
     this.px   = px
   }
-
   getMean(data){
     let sum = 0
     let mean
@@ -20,7 +18,6 @@ class Variance{
     mean = sum/this.data.length
     return mean
   }
-
   sampleVariance(data,px){
     let vari = 0
 
@@ -31,7 +28,6 @@ class Variance{
     }
     return vari
   }
-
   anotherMean(data,px){
     let sum = 0
     let mean
