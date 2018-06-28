@@ -1,43 +1,52 @@
 
-var data = [1,2,4,8,16]
-var px   = [0.05,0.15,0.35,0.4,0.05]
+var data = [2.71, 2.53, 2.76, 3.75, 2.27, 2.76, 3.95, 4.30, 3.85, 4.34, 3.48, 4.55, 2.44, 3.75, 2.85, 3.47, 2.91]
 
-class Variance {
-  constructor(data,px) {
+class SimpleVariance {
+  constructor(data) {
     this.data = data
-    this.px   = px
   }
-  getMean(data) {
+  sum() {
     let sum = 0
-    let mean
+
+    for(var i = 0; i < this.data.length; i++) {
+      //this is the Sum xi^2
+      sum += Math.pow(this.data[i], 2)
+    }
+    return sum
+  }
+
+  mean() {
+    let sum = 0
+    let mean = 0
 
     for(let i = 0; i < this.data.length; i++) {
       sum += this.data[i]
     }
+
     mean = sum/this.data.length
     return mean
   }
-  sampleVariance(data,px) {
+
+  sampleVariance() {
+    let n = this.data.length
     let vari = 0
+    let total = 0
 
-    for(let i = 0; i < this.data.length; i++) {
-      let deviation = this.data[i] - anotherMean(this.data, this.px)
+    for(let i = 0; i < n; i++) {
+      let deviation = this.data[i] - this.mean()
 
-      vari += (Math.pow(deviation, 2)) * pxaarry[i]
+      vari += (Math.pow(deviation, 2))
     }
-    return vari
-  }
-  anotherMean(data,px) {
-    let sum = 0
-    let mean
+    let blah = n-1
+    total = vari/blah
 
-    for(let i = 0; i < this.data.length; i++) {
-      sum += this.data[i] * this.px[i]
-    }
 
-    return sum
+    return total
   }
+
 }
-const test = new Variance(data,px)
+const test = new SimpleVariance(data)
 
-console.log(test.getMean())
+console.log(test.mean())
+console.log(test.sampleVariance())
+console.log(test.sum())
